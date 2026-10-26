@@ -116,28 +116,31 @@ No nosso ambiente de desenvolvimento, também utilizamos o Java 25 para compilar
 
 Para facilitar os testes, o sistema já possui um supervisor e um técnico cadastrados inicialmente.
 
-Perfil
-
-E-mail
-
-Senha
-
+Perfil:
 Supervisor
 
+E-mail:
 supervisor@escola.com
 
+Senha:
 Senha123!
 
+Perfil:
 Técnico
 
+E-mail:
 tecnico@escola.com
 
+Senha:
 Senha123!
 
+Perfil:
 Solicitante
 
+E-mail:
 Definido no cadastro
 
+Senha:
 Definida no cadastro
 
 O solicitante precisa criar sua própria conta utilizando o endpoint /api/auth/cadastro.
@@ -180,172 +183,247 @@ Os endpoints representam as operações que podem ser realizadas pela API.
 
 Todos utilizam o prefixo /api.
 
-Método
-
-Endpoint
-
-Responsável
-
+Método:
 POST
 
+Endpoint:
 /auth/cadastro
 
+Responsável:
 Público
 
+Método:
 POST
 
+Endpoint:
 /auth/login
 
+Responsável:
 Público
 
+Método:
 POST
 
+Endpoint:
 /config/equipes
 
+Responsável:
 Supervisor
 
+Método:
 GET
 
+Endpoint:
 /config/equipes
 
+Responsável:
 Autenticado
 
+Método:
 POST
 
+Endpoint:
 /config/categorias
 
+Responsável:
 Supervisor
 
+Método:
 GET
 
+Endpoint:
 /config/categorias
 
+Responsável:
 Autenticado
 
+Método:
 POST
 
+Endpoint:
 /config/tecnicos
 
+Responsável:
 Supervisor
 
+Método:
 PUT
 
+Endpoint:
 /config/prazos/{prioridade}
 
+Responsável:
 Supervisor
 
+Método:
 GET
 
+Endpoint:
 /config/prazos
 
+Responsável:
 Autenticado
 
+Método:
 POST
 
+Endpoint:
 /chamados
 
+Responsável:
 Solicitante
 
+Método:
 GET
 
+Endpoint:
 /chamados
 
+Responsável:
 Autenticado
 
+Método:
 GET
 
+Endpoint:
 /chamados/{id}
 
+Responsável:
 Usuário autorizado
 
+Método:
 POST
 
+Endpoint:
 /chamados/{id}/assumir
 
+Responsável:
 Técnico
 
+Método:
 POST
 
+Endpoint:
 /chamados/{id}/comentarios
 
+Responsável:
 Solicitante ou técnico
 
+Método:
 GET
 
+Endpoint:
 /chamados/{id}/comentarios
 
+Responsável:
 Usuário autorizado
 
+Método:
 GET
 
+Endpoint:
 /chamados/{id}/historico
 
+Responsável:
 Usuário autorizado
 
+Método:
 POST
 
+Endpoint:
 /chamados/{id}/aguardar
 
+Responsável:
 Técnico
 
+Método:
 POST
 
+Endpoint:
 /chamados/{id}/transferir
 
+Responsável:
 Técnico
 
+Método:
 POST
 
+Endpoint:
 /chamados/{id}/resolver
 
+Responsável:
 Técnico
 
+Método:
 POST
 
+Endpoint:
 /chamados/{id}/fechar
 
+Responsável:
 Solicitante
 
+Método:
 POST
 
+Endpoint:
 /chamados/{id}/reabrir
 
+Responsável:
 Solicitante
 
+Método:
 PATCH
 
+Endpoint:
 /chamados/{id}/prioridade
 
+Responsável:
 Supervisor
 
+Método:
 PATCH
 
+Endpoint:
 /chamados/{id}/atribuir
 
+Responsável:
 Supervisor
 
+Método:
 POST
 
+Endpoint:
 /chamados/processar-pendentes
 
+Responsável:
 Supervisor
 
+Método:
 GET
 
+Endpoint:
 /relatorios/prazos
 
+Responsável:
 Supervisor
 
+Método:
 GET
 
+Endpoint:
 /relatorios/tempos
 
+Responsável:
 Supervisor
 
+Método:
 GET
 
+Endpoint:
 /relatorios/notas
 
+Responsável:
 Supervisor
 
 Os endpoints possuem diferentes permissões para garantir que cada usuário consiga realizar apenas as operações permitidas ao seu perfil.
