@@ -1,0 +1,17 @@
+digraph Casos {
+ graph [rankdir=LR, bgcolor="white", nodesep="0.28", ranksep="1.05", fontname="DejaVu Sans"];
+ node [fontname="DejaVu Sans", fontsize=12]; edge [arrowhead=none, color="#65798C"];
+ Solicitante [shape=plaintext]; Tecnico [shape=plaintext, label="Técnico"]; Supervisor [shape=plaintext];
+ subgraph cluster_api { label="API HELP DESK"; style="rounded"; color="#94A3B8";
+ node [shape=ellipse, style=filled, fillcolor="#EFF6FB", color="#7EA5C4"];
+ abrir [label="Cadastrar / login\nAbrir e acompanhar"];
+ comentar [label="Comentar / responder\nAvaliar / fechar / reabrir"];
+ tecnico [label="Assumir / anotar\nAguardar / transferir / resolver"];
+ config [label="Cadastrar equipes,\ntécnicos, categorias e prazos"];
+ supervisao [label="Alterar prioridade\nReatribuir / processar pendentes"];
+ relatorios [label="Relatórios de prazos,\ntempos e notas"];
+ }
+ Solicitante -> abrir; Solicitante -> comentar;
+ Tecnico -> tecnico; Tecnico -> comentar;
+ Supervisor -> config; Supervisor -> supervisao; Supervisor -> relatorios;
+}

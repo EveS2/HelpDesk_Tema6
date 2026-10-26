@@ -1,0 +1,13 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      DB_URL: jdbc:h2:file:/app/data/helpdesk;DB_CLOSE_ON_EXIT=FALSE
+      JWT_SECRET: ${JWT_SECRET:?Defina JWT_SECRET em um arquivo .env (ao menos 32 caracteres)}
+    volumes:
+      - helpdesk-dados:/app/data
+    restart: unless-stopped
+volumes:
+  helpdesk-dados:

@@ -1,0 +1,49 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide methods
+class Usuario {
+ +id: Long
+ +nome: String
+ +email: String
+ +setor: String
+ -senha: String
+ +perfil: Perfil
+}
+enum Perfil { SOLICITANTE; TECNICO; SUPERVISOR }
+class Equipe { +id: Long; +nome: String; +descricao: String }
+class Categoria { +id: Long; +nome: String; +descricao: String }
+class PrazoPrioridade { +prioridade: Prioridade; +horas: int }
+enum Prioridade { BAIXA; MEDIA; ALTA; CRITICA }
+enum StatusChamado { ABERTO; EM_ATENDIMENTO; AGUARDANDO_SOLICITANTE; RESOLVIDO; FECHADO }
+class Chamado {
+ +id: Long
+ +titulo: String
+ +descricao: String
+ +prioridade: Prioridade
+ +status: StatusChamado
+ +abertoEm: Instant
+ +prazoEm: Instant
+ +pausaIniciadaEm: Instant
+ +segundosPausados: long
+ +resolvidoEm: Instant
+ +fechadoEm: Instant
+ +solucao: String
+ +nota: Integer
+}
+class Comentario { +texto: String; +interno: boolean; +criadoEm: Instant }
+class HistoricoChamado { +dataAlteracao: Instant; +campoAlterado: String; +valorAntigo: String; +valorNovo: String; +justificativa: String }
+Usuario --> Perfil
+Usuario "0..*" --> "0..1" Equipe : tecnico da equipe
+Categoria "0..*" --> "1" Equipe : pertence
+Chamado "0..*" --> "1" Categoria
+Chamado "0..*" --> "1" Equipe : fila atual
+Chamado "0..*" --> "1" Usuario : solicitante
+Chamado "0..*" --> "0..1" Usuario : tecnico
+Chamado --> Prioridade
+Chamado --> StatusChamado
+Comentario "0..*" --> "1" Chamado
+Comentario "0..*" --> "1" Usuario : autor
+HistoricoChamado "0..*" --> "1" Chamado
+HistoricoChamado "0..*" --> "1" Usuario : autor
+PrazoPrioridade --> Prioridade
+@enduml

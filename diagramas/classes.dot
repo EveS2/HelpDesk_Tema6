@@ -1,0 +1,22 @@
+digraph Classes {
+ graph [rankdir=LR, bgcolor="white", nodesep="0.55", ranksep="1.0", fontname="DejaVu Sans"];
+ node [shape=record, style="rounded,filled", fillcolor="#EFF6FB", color="#6A90AE", fontname="DejaVu Sans", fontsize=12];
+ edge [color="#64748B", fontname="DejaVu Sans", fontsize=9];
+ Usuario [label="{Usuario|id, nome, email, setor, senha, perfil|equipe (tecnico)}"];
+ Equipe [label="{Equipe|id, nome, descricao}"];
+ Categoria [label="{Categoria|id, nome, descricao}"];
+ Chamado [label="{Chamado|titulo, descricao, prioridade, status|abertoEm, prazoEm, pausaIniciadaEm|segundosPausados, resolvidoEm, fechadoEm|solucao, nota, segundosAteResolucao}", fillcolor="#FDF2DD"];
+ Comentario [label="{Comentario|texto, interno, criadoEm}"];
+ Historico [label="{HistoricoChamado|dataAlteracao, campoAlterado|valorAntigo, valorNovo, justificativa}"];
+ Prazo [label="{PrazoPrioridade|prioridade, horas}"];
+ Usuario -> Equipe [label="tecnico pertence"];
+ Categoria -> Equipe [label="atendida por"];
+ Chamado -> Categoria [label="categoria"];
+ Chamado -> Equipe [label="fila atual"];
+ Chamado -> Usuario [label="solicitante e tecnico"];
+ Chamado -> Prazo [style=dashed, label="regra de horas"];
+ Comentario -> Chamado [label="mensagem de"];
+ Comentario -> Usuario [label="autor"];
+ Historico -> Chamado [label="mudanca de"];
+ Historico -> Usuario [label="autor"];
+}

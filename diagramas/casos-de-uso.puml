@@ -1,0 +1,39 @@
+@startuml
+left to right direction
+actor Solicitante
+actor Tecnico
+actor Supervisor
+rectangle "API de Help Desk" {
+ usecase "Cadastrar-se e entrar" as A
+ usecase "Abrir e acompanhar chamado" as B
+ usecase "Comentar e responder" as C
+ usecase "Avaliar e fechar" as D
+ usecase "Reabrir ate 7 dias" as E
+ usecase "Assumir da fila" as F
+ usecase "Incluir nota interna" as G
+ usecase "Aguardar solicitante" as H
+ usecase "Transferir equipe" as I
+ usecase "Registrar solucao" as J
+ usecase "Cadastrar equipes, categorias, tecnicos" as K
+ usecase "Alterar prazos" as L
+ usecase "Mudar prioridade / reatribuir" as M
+ usecase "Processar abandonados/resolvidos" as N
+ usecase "Emitir relatórios" as O
+}
+Solicitante -- A
+Solicitante -- B
+Solicitante -- C
+Solicitante -- D
+Solicitante -- E
+Tecnico -- F
+Tecnico -- C
+Tecnico -- G
+Tecnico -- H
+Tecnico -- I
+Tecnico -- J
+Supervisor -- K
+Supervisor -- L
+Supervisor -- M
+Supervisor -- N
+Supervisor -- O
+@enduml
